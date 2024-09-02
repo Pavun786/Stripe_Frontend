@@ -4,11 +4,15 @@ import StripeCheckout from "react-stripe-checkout";
 import React,{useState} from "react";
 
 function App() {
+
   const [product,setProduct] = useState({
     name: "React from FB",
     price: 10,
     productBy: "faceBook",
   });
+
+  // console.log(process.env.REACT_APP_KEY)
+
 
   const makePayment = token => {
     const body = {
@@ -51,7 +55,7 @@ function App() {
         </a>
 
         <StripeCheckout 
-          stripeKey={process.env.REACT_APP_KEY}   // This is stripe publish key
+          stripeKey="pk_test_51NNawlSE7ZntMqC3euqicMcL5NY7ysOgX01tluTTs8jR6PHAUd4zRXR9LQaZ1kuH22ua8X1DfEnLziJJdxr7EBgC00Os2qgXjT"   // This is stripe publish key
           token={makePayment} 
           name="Buy React">
           <button className="btn btn-large pink">
